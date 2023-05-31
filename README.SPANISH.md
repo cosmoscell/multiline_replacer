@@ -1,4 +1,7 @@
 # **replacer**
+**replacer** es un pequeño script PHP pensado para reemplazar patrones construidos con expresiones regulares por cadenas, en múltiples ficheros. En concreto puedes usarlo para encontrar patrones multilínea en ficheros y sustituir las ocurrencias por una cadena. La motivación de hacer este script es porque usar sed o awk para encontrar patrones multilínea es difícil, este script te hace la vida más fácil.
+## Requisitos:
+# **replacer**
 **replacer** es un pequeño script PHP pensado para reemplazar patrones construidos con expresiones regulares por cadenas, en múltiples ficheros.
 ## Requisitos:
 Necesitas tener instalado en tu Linux el CLI de PHP.
@@ -19,4 +22,5 @@ Reemplazar '<?' seguido de salto de línea por '<?php' seguido de salto de líne
 find . -type f -name '*.php' -exec replacer "<\?\n" "<?php\n" {} \;
 ```
 ## Bugs y sugerencias:
-Envía tus comentarios a: Ricardo Ruiz Martínez <richiruizmartinez@gmail.com>
+Envía tus comentarios a Ricardo Ruiz Martínez <richiruizmartinez@gmail.com>
+¡Gracias!
