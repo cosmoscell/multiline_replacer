@@ -4,7 +4,8 @@
 # **replacer**
 **replacer** es un pequeño script PHP pensado para reemplazar patrones construidos con expresiones regulares por cadenas, en múltiples ficheros.
 ## Requisitos:
-Necesitas tener instalado en tu Linux el CLI de PHP.
+- Necesitas tener instalado el CLI de PHP en tu Linux.
+- Necesitas que tu usuario pueda ejecutar sudo.
 ## Instalación:
 ```
 git clone https://github.com/richi-rm/replacer.git
