@@ -1,0 +1,61 @@
+#!/usr/bin/php
+<?php
+
+   //
+   // replacer
+   //
+
+   declare(strict_types=1);
+
+   \ini_set('display_errors', 0);
+   \error_reporting(0);
+
+   define('APP', 'replacer');
+
+   // args
+   //
+   if ($argc < 4) {
+      echo "\e[33m" . 'Usage:' . "\e[0m" . ' ' . APP . ' ' . 'pattern' . ' ' . 'replacement' . ' ' . 'file' . "\n";
+      echo "\e[33m" . 'Example:' . "\e[0m" . ' ' . APP . ' ' . '"<?\n"' . ' ' . '"<?php\n"' . ' ' . 'file.php' . "\n";
+      die();
+   }
+   $pattern     = $argv[1];
+   $replacement = $argv[2];
+   $file_path   = $argv[3];
+
+   // file
+   //
+   if (!\file_exists($file_path)) {
+      echo "\e[31m" . 'Error:' . "\e[0m" . ' ' . "file ${file_path} does not exist" . "\n";
+      die();
+   }
+   if (!\is_writable($file_path)) {
+      echo "\e[31m" . 'Error:' . "\e[0m" . ' ' . "file ${file_path} is not writable" . "\n";
+      die();
+   }
+
+   // file content
+   //
+   $content = \file_get_contents($file_path);
+   if ($content === FALSE) {
+      echo "\e[31m" . 'Error:' . "\e[0m" . ' ' . "file ${file_path} cannot be read" . "\n";
+      die();
+   }
+
+   // replace
+   //
+   $replacement = \str_replace("\\n", "\n", $replacement);
+   $newContent = \preg_replace('/' . $pattern . '/', $replacement, $content);
+
+   // write file
+   //
+   $write = \file_put_contents($file_path, $newContent);
+   if ($write === FALSE) {
+      echo "\e[31m" . 'Error:' . "\e[0m" . ' ' . "file ${file_path} cannot be written" . "\n";
+      die();
+   }
+
+   // OK
+   //
+   echo "\e[32m" . 'Replace OK:' . "\e[0m" . ' ' . 'in file' . ' ' . $file_path . "\n";
+   die();
