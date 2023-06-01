@@ -19,6 +19,10 @@ Replace '<?' followed by newline by '<?php' followed by newline, in all PHP file
 ```
 find . -type f -name '*.php' -exec replacer "<\?\n" "<?php\n" {} \;
 ```
+## Uninstall:
+```
+./uninstall.sh
+```
 ## Bugs and comments:
 Send your comments to Ricardo Ruiz Martínez <richiruizmartinez@gmail.com>
 Thank you!

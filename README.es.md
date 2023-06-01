@@ -22,6 +22,10 @@ Reemplazar '<?' seguido de salto de línea por '<?php' seguido de salto de líne
 ```
 find . -type f -name '*.php' -exec replacer "<\?\n" "<?php\n" {} \;
 ```
+## Desinstalación:
+```
+./uninstall.sh
+```
 ## Bugs y sugerencias:
 Envía tus comentarios a Ricardo Ruiz Martínez <richiruizmartinez@gmail.com>
 ¡Gracias!
