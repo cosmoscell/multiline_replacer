@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 
 sudo cp replacer /usr/local/bin
 sudo chmod 755 /usr/local/bin/replacer
